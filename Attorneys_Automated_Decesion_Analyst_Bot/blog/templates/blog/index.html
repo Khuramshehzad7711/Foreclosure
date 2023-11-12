@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" type= "text/css" href = "{% static 'blog/style.css' %}"/>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    <h1>Attorneys Automated Decision Analaysis Assistant Bot</h1>
+
+
+    <div>
+        <div id="Chatbot">
+            <!-- Initial message from the bot -->
+            <p class="botText"><span>Welcome to Legal Decision Analaysis Bot<br> Do you want to register a foreclosure application? </span> </p>
+
+        </div>
+        <div id = "userInput">
+            <input type = "text" id = "textInput" name = "userMessage" placeholder="Type your message ... "/>
+            <input type = "submit" value = "Send" id = "buttonInput"/>
+
+        </div>
+    </div>
+
+
+    <script>
+        function getUserResponse() {
+            var userInput = $('#textInput').val();
+            var userHTML = "<p class='userInput'>User: <span>" + userInput + "</span></p>";
+            $('#textInput').val("");
+            $('#Chatbot').append(userHTML);
+    
+            $.get('/bot/getResponse', { userMessage: userInput }).done(function (data) {
+                var returnedMessage = "<p class='botText'>Chatbot: <span>" + data.botResponse + "</span></p>";
+                $('#Chatbot').append(returnedMessage);
+            });
+        }
+
+        // Trigger getUserResponse when Enter key is pressed in the input field
+        $('#textInput').keypress(function (e) {
+        if (e.which == 13) { // 13 is the key code for Enter
+            getUserResponse();
+            return false; // Prevent the default form submission behavior
+        }
+        });
+
+        // Trigger getUserResponse when the "Send" button is clicked
+        $('#buttonInput').click(function () {
+            getUserResponse();
+        });
+    </script>
+
+
+</body>
+</html>

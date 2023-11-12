@@ -1,0 +1,57 @@
+#Chatbot{
+    margin-left:auto;
+    margin-right: auto;
+    width: 70%;
+    margin-top: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+.botText{
+    font-family: monospace;
+    font-size: 14px;
+    text-align: left;
+    line-height: 25px;
+    color: rgb(98, 98, 216);
+}
+
+#userInput{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    text-align: center;
+} 
+
+#textInput{
+    border: 3px solid white;
+    border-bottom: 3px solid green;
+    font-family: monospace;
+    font-size: 14px;
+    width: 60%;
+    padding: 16px;
+    color: rgb(255, 0, 221);
+}
+
+#buttonInput{
+    padding: 5px;
+    font-family: monospace;
+    font-size: 14px;
+    border: 3px solid rgb(129, 109, 109);
+    background-color: rgb(59, 71, 38);
+    color: white;
+    border-radius: 10px;
+}
+
+/* Add this new rule to center the h1 element */
+h1 {
+    text-align: center;
+}
+
+.userInput{
+    text-align: right;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 25px;
+    color: gray;
+}
